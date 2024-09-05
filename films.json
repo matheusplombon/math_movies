@@ -1,0 +1,134 @@
+import json
+
+
+filmes_novos = [
+    {
+        "nome": "O Exorcista III",
+        "ano": "1990",
+        "categorias": ["Horror", "Thriller"],
+        "avaliacao": "6.4",
+        "capa": "https://upload.wikimedia.org/wikipedia/pt/thumb/1/1a/Exorcista_3.jpg/250px-Exorcista_3.jpg",
+        "sinopse": "O detetive Kinderman investiga uma série de assassinatos semelhantes aos cometidos pelo demônio que possuía uma jovem garota anos atrás."
+    },
+    {
+        "nome": "O Labirinto do Fauno",
+        "ano": "2006",
+        "categorias": ["Fantasia", "Drama"],
+        "avaliacao": "8.2",
+        "capa": "https://br.web.img2.acsta.net/medias/nmedia/18/87/14/49/19872468.jpg",
+        "sinopse": "Em uma Espanha pós-guerra, uma jovem menina encontra um labirinto mágico e deve completar três tarefas para provar que é a reencarnação de uma princesa."
+    },
+    {
+        "nome": "A Princesa Mononoke",
+        "ano": "1997",
+        "categorias": ["Animação", "Aventura"],
+        "avaliacao": "8.6",
+        "capa": "https://upload.wikimedia.org/wikipedia/pt/1/15/Princess_Mononoke_poster.jpg",
+        "sinopse": "Uma jovem mulher é feita prisioneira em um castelo encantado e descobre que a verdadeira beleza está no interior."
+    },
+    {
+        "nome": "O Jogo da Imitação",
+        "ano": "2014",
+        "categorias": ["Biografia", "Drama"],
+        "avaliacao": "8.0",
+        "capa": "https://gagueira.org.br/images/imagens-releases/o-jogo-da-imitacao-alan-turing.jpeg",
+        "sinopse": "Baseado na vida de Alan Turing, o matemático que ajudou a decifrar códigos nazistas durante a Segunda Guerra Mundial e enfrentou desafios pessoais."
+    },
+    {
+        "nome": "O Último Samurai",
+        "ano": "2003",
+        "categorias": ["Ação", "Drama"],
+        "avaliacao": "7.7",
+        "capa": "https://upload.wikimedia.org/wikipedia/pt/8/8b/The_Last_Samurai.jpg",
+        "sinopse": "Um capitão do exército americano é capturado por samurais no Japão e acaba se juntando a eles, lutando ao lado deles contra o exército imperial."
+    },
+    {
+        "nome": "O Nascimento de uma Nação",
+        "ano": "1915",
+        "categorias": ["Drama", "História"],
+        "avaliacao": "6.3",
+        "capa": "https://upload.wikimedia.org/wikipedia/pt/7/74/The_Birth_of_a_Nation_%281915_film%29.jpg",
+        "sinopse": "Um épico histórico sobre a Guerra Civil Americana e a ascensão do Ku Klux Klan, notório por seu retrato racista da reconstrução americana."
+    },
+    {
+        "nome": "Os Caça-Fantasmas",
+        "ano": "1984",
+        "categorias": ["Comédia", "Fantasia"],
+        "avaliacao": "7.8",
+        "capa": "https://upload.wikimedia.org/wikipedia/pt/e/e5/Ghostbusters_%281984_film%29.jpg",
+        "sinopse": "Três cientistas desempregados formam uma equipe para capturar fantasmas em Nova York, enfrentando uma série de eventos sobrenaturais."
+    },
+    {
+        "nome": "O Fabuloso Destino de Amélie Poulain",
+        "ano": "2001",
+        "categorias": ["Comédia", "Romance"],
+        "avaliacao": "8.3",
+        "capa": "https://upload.wikimedia.org/wikipedia/pt/e/e0/Am%C3%A9lie_poster.jpg",
+        "sinopse": "Uma jovem mulher decide mudar a vida das pessoas ao seu redor para melhor, enquanto busca sua própria felicidade e amor."
+    },
+    {
+        "nome": "A Coisa",
+        "ano": "2017",
+        "categorias": ["Horror", "Fantasia"],
+        "avaliacao": "6.7",
+        "capa": "https://br.web.img3.acsta.net/pictures/17/03/30/22/44/345288.jpg",
+        "sinopse": "Um grupo de crianças enfrenta uma entidade demoníaca que aparece sob a forma de um palhaço aterrorizante em sua cidade."
+    },
+    {
+        "nome": "A Bela e a Fera",
+        "ano": "1991",
+        "categorias": ["Animação", "Fantasia"],
+        "avaliacao": "8.0",
+        "capa": "https://i.pinimg.com/736x/e3/c9/6e/e3c96e80d2798a3d4d6d34d161b33a01.jpg",
+        "sinopse": "Uma jovem mulher é feita prisioneira em um castelo encantado e descobre que a verdadeira beleza está no interior."
+    },
+    # Filmes adicionais
+    {
+        "nome": "Vingadores: Ultimato",
+        "ano": "2019",
+        "categorias": ["Ação", "Aventura", "Ficção científica"],
+        "avaliacao": "8.4",
+        "capa": "https://upload.wikimedia.org/wikipedia/pt/4/4c/Avengers_Endgame_poster.jpg",
+        "sinopse": "Os Vingadores lutam contra o vilão Thanos para reverter os danos causados pela sua devastadora intervenção no universo."
+    },
+    {
+        "nome": "Batman: O Cavaleiro das Trevas",
+        "ano": "2008",
+        "categorias": ["Ação", "Crime", "Drama"],
+        "avaliacao": "9.0",
+        "capa": "https://upload.wikimedia.org/wikipedia/pt/1/13/The_Dark_Knight.jpg",
+        "sinopse": "Batman enfrenta o Coringa, um criminoso psicopata que quer mergulhar Gotham City na anarquia."
+    },
+    {
+        "nome": "À Procura da Felicidade",
+        "ano": "2006",
+        "categorias": ["Biografia", "Drama"],
+        "avaliacao": "8.0",
+        "capa": "https://upload.wikimedia.org/wikipedia/pt/4/42/The_Pursuit_of_Happyness.jpg",
+        "sinopse": "Baseado na história real de Chris Gardner, um vendedor que luta para criar seu filho e alcançar o sucesso profissional enquanto enfrenta dificuldades financeiras."
+    },
+    {
+        "nome": "Inception",
+        "ano": "2010",
+        "categorias": ["Ação", "Aventura", "Ficção científica"],
+        "avaliacao": "8.8",
+        "capa": "https://upload.wikimedia.org/wikipedia/pt/7/7f/Inception_%282010_film%29.jpg",
+        "sinopse": "Um ladrão especializado em extrair segredos dos sonhos é oferecido uma chance de redimir sua vida se ele conseguir implantar uma ideia na mente de uma pessoa."
+    },
+    {
+        "nome": "O Senhor dos Anéis: O Retorno do Rei",
+        "ano": "2003",
+        "categorias": ["Aventura", "Drama", "Fantasia"],
+        "avaliacao": "8.9",
+        "capa": "https://upload.wikimedia.org/wikipedia/pt/d/d1/The_Return_of_the_King.jpg",
+        "sinopse": "A batalha final pela Terra Média se aproxima enquanto Frodo e Sam lutam para destruir o Um Anel."
+    },
+    {
+        "nome": "Matrix",
+        "ano": "1999",
+        "categorias": ["Ação", "Ficção científica"],
+        "avaliacao": "8.7",
+        "capa": "https://upload.wikimedia.org/wikipedia/pt/9/98/The_Matrix_1999_film_poster.jpg",
+        "sinopse": "Thomas Anderson, um programador de computador, descobre que a realidade que conhece é uma simulação criada por máquinas que dominam o mundo."
+    }
+]
