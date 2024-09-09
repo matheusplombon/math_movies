@@ -1,115 +1,300 @@
 /* Importa as fontes do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@600&family=Poppins:wght@300;400;700&display=swap');
 
-/* Estiliza o corpo da página */
+/* Remove margens e espaçamentos padrão e define fonte e comportamento de rolagem suave */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Estilo do corpo da página */
 body {
-    font-family: "Chakra Petch", sans-serif;
-    background-image: url('fotos/fundo2.jpg');
-    background-size: cover;
-    background-position: center;
+    background-color: #121212;
+    color: white;
+    line-height: 1.6;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilo do cabeçalho fixo na parte superior da página */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+    height: 80px;
+}
+
+/* Container do logo e nome, com transição e comportamento ao passar o cursor */
+header .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: filter 0.3s;
+    cursor: pointer;
+}
+
+/* Estilo da imagem do logo */
+header .logo-container img {
+    width: 100px;
+}
+
+/* Estilo do título no logo */
+header .logo-container h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: #e0e0e0;
+}
+
+/* Navegação centralizada no cabeçalho */
+header nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Links de navegação com animação ao passar o mouse */
+header nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s, border-bottom 0.3s;
+    padding-bottom: 8px;
+}
+
+/* Estilo para link ativo */
+header nav a.active {
+    color: #e50914;
+    border-bottom: 2px solid #e50914;
+}
+
+/* Alteração da cor ao passar o mouse sobre o link */
+header nav a:hover {
+    color: #fff;
+}
+
+/* Botões de autenticação (login/cadastro) */
+header .auth-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Estilo dos botões de login/cadastro */
+header .auth-buttons .btn {
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Botão branco */
+header .auth-buttons .btn-white {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Botão vermelho */
+header .auth-buttons .btn-red {
+    background-color: #e50914;
+    color: #fff;
+}
+
+/* Estilo principal da seção central */
+.main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 20px 20px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("assets/images/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Centralização da hero section */
+.hero {
+    text-align: center;
+}
+
+/* Estilo do título principal na hero */
+.hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    color: #f5f5f5;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Estilo dos parágrafos na hero */
+.hero p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+    line-height: 1.4;
+}
+
+/* Estilo dos botões na hero */
+.hero-buttons {
+    display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
-/* Estiliza o título h1 "Math Movies" */
-h1 {
-    font-size: 3.5rem;
-    color: #000000; /* Cor preta */
+/* Estilo básico dos botões */
+.btn {
+    padding: 10px 25px;
+    font-weight: 500;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo do botão vermelho */
+.btn-red {
+    background-color: #e50914;
+    color: white;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 30px;
+    font-weight: 600;
+    border: none;
+}
+
+/* Animação ao passar o mouse no botão vermelho */
+.btn-red:hover {
+    background-color: #b20710;
+    transform: scale(1.05);
+}
+
+/* Estilo dos inputs na seção principal */
+.main input {
+    padding: 10px 18px;
+    color: white;
+    font-size: 16px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: border-color 0.3s ease;
+    max-width: 300px;
+    outline: none;
+}
+
+/* Placeholder dos inputs */
+.main input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Alteração da borda ao focar no input */
+.main input:focus {
+    border-color: white;
+}
+
+/* Estilo da grade de filmes */
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Estilo dos cartões de filmes */
+.movie-card {
+    position: relative;
+    width: 220px;
+    color: #e0e0e0;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+/* Estilo das imagens dos filmes */
+.movie-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: opacity 0.3s;
+}
+
+/* Animação ao passar o mouse sobre a imagem */
+.movie-card:hover img {
+    opacity: 0.7;
+}
+
+/* Informações do filme */
+.movie-card .info {
     text-align: center;
-    letter-spacing: 0.3rem;
-    font-family: 'Pacifico', cursive; /* Altera a fonte para Pacifico */
-    font-weight: 400; /* Estilo normal */
+    padding: 10px;
 }
 
-
-/* Estiliza as seções da página */
-section {
-    display: flex; /* Usa Flexbox para layout */
-    flex-direction: column; /* Alinha os itens na vertical */
-    align-items: center; /* Centraliza os itens horizontalmente */
-    margin-bottom: 3rem; /* Espaçamento abaixo de cada seção */
+/* Título do filme */
+.movie-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
 }
 
-/* Estiliza os inputs dentro das seções */
-section input {
-    width: 30rem; /* Largura dos inputs */
-    border: none; /* Remove a borda padrão */
-    padding: 1rem; /* Espaçamento interno */
-    border-radius: 1.5rem; /* Borda arredondada */
-    margin-bottom: 1rem; /* Espaçamento abaixo dos inputs */
-    color: #45474B; /* Cor do texto */
-    font-size: 1rem; /* Tamanho da fonte */
-    box-sizing: border-box; /* Inclui padding e border na largura total */
+/* Avaliação do filme */
+.movie-card p {
+    font-size: 16px;
 }
 
-/* Estiliza os botões dentro das seções */
-section button {
-    padding: 0.8rem 1.2rem; /* Espaçamento interno do botão */
-    border: none; /* Remove a borda padrão */
-    border-radius: 1.5rem; /* Borda arredondada */
-    background-color: #30475E; /* Cor de fundo do botão */
-    color: #F5F7F8; /* Cor do texto do botão */
-    font-size: 1rem; /* Tamanho da fonte */
-    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+/* Mensagem de resultados não encontrados */
+#no-results-message {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 20px;
 }
 
-/* Estiliza a caixa de resultados da pesquisa */
-.resultados-pesquisa {
-    width: 60rem; /* Largura máxima da caixa de resultados */
-    height: 46vh; /* Altura máxima da caixa de resultados */
-    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
-    margin-top: 1rem; /* Espaçamento acima da caixa de resultados */
-    padding: 1rem; /* Espaçamento interno */
-    border-radius: 0.6rem; /* Borda arredondada */
-    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
-}
-
-/* Estiliza cada item de resultado */
-.item-resultado {
-    background: #FFFFFF; /* Cor de fundo dos itens */
-    border-radius: 0.6rem; /* Borda arredondada */
-    padding: 1rem; /* Espaçamento interno */
-    margin-bottom: 1rem; /* Espaçamento abaixo dos itens */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
-}
-
-/* Estiliza os títulos dentro dos itens de resultado */
-.item-resultado h2 {
-    font-size: 1.5rem; /* Tamanho da fonte */
-    color: #222831; /* Cor do texto */
-}
-
-/* Estiliza os links dentro dos itens de resultado */
-.item-resultado a {
-    text-decoration: none; /* Remove o sublinhado padrão dos links */
-    color: #30475E; /* Cor do texto dos links */
-}
-
-/* Estiliza os links quando são passados o mouse sobre */
-.item-resultado a:hover {
-    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
-}
-
-/* Estiliza a descrição meta dentro dos itens de resultado */
-.descricao-meta {
-    color: #45474B; /* Cor do texto */
-    margin: 0.5rem 0; /* Margem acima e abaixo */
-}
-
-/* Estiliza o rodapé da página */
+/* Estilo do rodapé */
 footer {
-    background-color: #F5F7F8; /* Cor de fundo do rodapé */
-    color: #45474B; /* Cor do texto */
-    text-align: center; /* Alinha o texto ao centro */
-    padding: 0.5rem; /* Espaçamento interno */
-    width: 100%; /* Largura total da página */
-    position: absolute; /* Posiciona o rodapé */
-    bottom: 0; /* Alinha ao fundo da página */
-    font-size: 1rem; /* Tamanho da fonte */
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #e0e0e0;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Estilo dos parágrafos no rodapé */
+footer p {
+    margin: 0;
+}
+
+/* Estilo dos links no rodapé */
+footer a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s;
 }
